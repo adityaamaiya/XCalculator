@@ -19,48 +19,29 @@ function Calculator() {
     }
   };
 
-  const buttonStyle = {
-    width: "60px",
-    height: "60px",
-    fontSize: "24px",
-    margin: "5px",
-    borderRadius: "10px"
-  };
-
-  const displayStyle = {
-    marginBottom: "20px",
-    fontSize: "24px",
-    width: "250px",
-    textAlign: "right",
-    padding: "10px",
-    borderRadius: "5px",
-    border: "1px solid #ccc"
-  };
-
   const resultStyle = {
     marginTop: "10px",
     fontSize: "20px",
-    color: "gray"
-  };
-
-  const calculatorStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center"
+    color: "white",
   };
 
   const buttonsStyle = {
     display: "grid",
     gridTemplateColumns: "repeat(4, 1fr)",
-    gap: "5px"
+    gap: "5px",
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
+    <div style={{ textAlign: "center", marginTop: "50px", maxWidth: "550px" }}>
       <h1>React Calculator</h1>
-      <div style={calculatorStyle}>
-        <div style={{ padding: "12px" }}>
-          <input type="text" value={input} readOnly style={{ width: "100%" }} />
+      <div className="calculator">
+        <div>
+          <input
+            type="text"
+            value={input}
+            readOnly
+            style={{ width: "100%", padding: "5px" }}
+          />
           <div style={resultStyle}>{result}</div>
         </div>
         <div style={buttonsStyle}>
@@ -80,13 +61,9 @@ function Calculator() {
             "C",
             "0",
             "=",
-            "/"
+            "/",
           ].map((value) => (
-            <button
-              key={value}
-              onClick={() => handleButtonClick(value)}
-              style={buttonStyle}
-            >
+            <button key={value} onClick={() => handleButtonClick(value)}>
               {value}
             </button>
           ))}
